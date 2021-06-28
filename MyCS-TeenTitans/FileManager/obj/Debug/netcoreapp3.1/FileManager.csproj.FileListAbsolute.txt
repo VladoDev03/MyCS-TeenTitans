@@ -1,0 +1,9 @@
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\bin\Debug\netcoreapp3.1\FileManager.deps.json
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\bin\Debug\netcoreapp3.1\FileManager.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\bin\Debug\netcoreapp3.1\FileManager.pdb
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.csprojAssemblyReference.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.AssemblyInfoInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.AssemblyInfo.cs
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.csproj.CoreCompileInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\FileManager\obj\Debug\netcoreapp3.1\FileManager.pdb

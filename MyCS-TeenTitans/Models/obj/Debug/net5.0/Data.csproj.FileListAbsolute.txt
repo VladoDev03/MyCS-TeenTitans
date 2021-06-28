@@ -1,0 +1,15 @@
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\Data.deps.json
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\Data.runtimeconfig.json
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\Data.runtimeconfig.dev.json
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\Data.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\ref\Data.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\bin\Debug\net5.0\Data.pdb
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.csprojAssemblyReference.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.AssemblyInfo.cs
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\ref\Data.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.pdb
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Models\obj\Debug\net5.0\Data.genruntimeconfig.cache

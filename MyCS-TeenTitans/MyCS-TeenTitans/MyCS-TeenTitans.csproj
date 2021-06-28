@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FileManager\FileManager.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 

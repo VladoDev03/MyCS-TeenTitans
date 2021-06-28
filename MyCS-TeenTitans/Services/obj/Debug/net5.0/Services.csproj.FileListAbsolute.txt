@@ -1,0 +1,15 @@
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\Services.deps.json
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\Services.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\ref\Services.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\Services.pdb
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\Data.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\bin\Debug\net5.0\Data.pdb
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.csprojAssemblyReference.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.AssemblyInfoInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.AssemblyInfo.cs
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.csproj.CoreCompileInputs.cache
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.csproj.CopyComplete
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\ref\Services.dll
+E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\Services\obj\Debug\net5.0\Services.pdb

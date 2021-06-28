@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj": {}
+    "E:\\GitRepositories\\MyCS-TeenTitans\\MyCS-TeenTitans\\Models\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj": {
+    "E:\\GitRepositories\\MyCS-TeenTitans\\MyCS-TeenTitans\\Models\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj",
+        "projectUniqueName": "E:\\GitRepositories\\MyCS-TeenTitans\\MyCS-TeenTitans\\Models\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\obj\\",
+        "projectPath": "E:\\GitRepositories\\MyCS-TeenTitans\\MyCS-TeenTitans\\Models\\Data.csproj",
+        "packagesPath": "C:\\Users\\Vladrig\\.nuget\\packages\\",
+        "outputPath": "E:\\GitRepositories\\MyCS-TeenTitans\\MyCS-TeenTitans\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vladrig\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,15 +46,15 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.7, )"
-            },
-            "MySql.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.3.1, )"
             }
           },
           "imports": [
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
