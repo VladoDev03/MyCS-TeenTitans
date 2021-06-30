@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyCS_TeenTitans.Models;
+using Services;
+using Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,15 +15,29 @@ namespace MyCS_TeenTitans.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public IBankUserServices BankUserService { get; set; }
+        public HomeController(IBankUserServices bankUserService, ILogger<HomeController> logger)
         {
+            this.BankUserService = bankUserService;
             _logger = logger;
+
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string accountNumber)
         {
-            return View();
+            // TODO: Setup database 
+            // TOOD: Populate records in the database 
+            // TODO: Call service to find user by account number
+            if (String.IsNullOrWhiteSpace(accountNumber))
+            {
+                return View();
+            } else
+            {
+                //BankUser user = this.BankUserService.FindByNumber(accountNumber);
+                BankUser user = new BankUser("1", "Test", "Testov", "Ok", "250", new DateTime(2021, 12, 31));
+
+                return View(user);
+            }
         }
 
         public IActionResult Privacy()
@@ -37,9 +54,13 @@ namespace MyCS_TeenTitans.Controllers
             return View();
         }
 
-        public IActionResult EditClient(string name)
+        public IActionResult EditClient(string accountNumber)
         {
-            return View();
+            // TODO: Call service to get data and popualte the model(Model for the form that has all the input fields)
+            EditClientViewModel user = new EditClientViewModel();
+            //EditClientViewModel user = this.BankUserService.FindByNumber(accountNumber);
+
+            return View(user);
         }
 
         public IActionResult BachProcessing()
@@ -47,9 +68,27 @@ namespace MyCS_TeenTitans.Controllers
             return View();
         }
 
-        public IActionResult DecisionNewClient()
+        public IActionResult DecisionNewClient(string firstName, string lastName)
         {
-            return View();
+            //TODO: Add logic to get real decision and score
+            var decision = "";
+            var score = "";
+            if(firstName == "Simona")
+            {
+                decision = "Accepted";
+                score = "1000";
+                
+            } else
+            {
+                decision = "Rejected";
+                score = "500";
+            }
+
+            DecisionViewModel model = new Data.Models.DecisionViewModel();
+            model.Decision = decision;
+            model.Score = score;
+
+            return View(model);
         }
 
         public IActionResult DecisionEditClient()

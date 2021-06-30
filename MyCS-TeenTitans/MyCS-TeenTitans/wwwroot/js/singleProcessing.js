@@ -35,7 +35,10 @@ function nextPrev(n) {
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
         //...the form gets submitted:
-        document.getElementById("regForm").submit();
+        //document.getElementById("regForm").submit();
+        var firstName = $("#first-name").val();
+        var lastName = $("#last-name").val();
+        window.location.href = `/Home/DecisionNewClient?firstName=${firstName}&lastName=${lastName}`;
         return false;
     }
     // Otherwise, display the correct tab:
