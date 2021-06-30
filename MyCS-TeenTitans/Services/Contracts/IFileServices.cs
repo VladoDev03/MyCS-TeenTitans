@@ -16,5 +16,9 @@ namespace Services.Contracts
         File FindByName(string fileName);
 
         void AddFile(File file);
+
+        void EditFile(int id, File newData);
+
+        void RemoveFile(File file);
     }
 }

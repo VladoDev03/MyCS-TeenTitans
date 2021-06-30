@@ -15,7 +15,7 @@ namespace MyCS_TeenTitans.Controllers
     {
         private IBankUserServices userServices;
 
-        private const string OriginalPath = @"C:\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Input\FirstModel.csv";
+        private const string OriginalPath = @"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Input\FirstModel.csv";
 
         public ProcessingController(IBankUserServices userServices)
         {
@@ -34,6 +34,7 @@ namespace MyCS_TeenTitans.Controllers
         public string SingleCreate([FromBody] Model model)
         {
             string result = JsonManager.CreateJsonForUserOutput(model);
+            //Info log
 
             return result;
         }
@@ -45,12 +46,24 @@ namespace MyCS_TeenTitans.Controllers
         public async Task<string> MultyCreate()
         {
             string path = null;
+            //Info log
 
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
                 path = await reader.ReadToEndAsync();
             }
 
+            return ProcessAllModels(path);
+        }
+
+        //Method for UI
+        public void MultyCreate(string path)
+        {
+            ProcessAllModels(path);
+        }
+
+        private string ProcessAllModels(string path)
+        {
             List<Model> models = CsvManager.ReadCsv(path);
 
             StringBuilder sb = new StringBuilder();
@@ -58,10 +71,9 @@ namespace MyCS_TeenTitans.Controllers
             foreach (Model model in models)
             {
                 sb.AppendLine(model.ToString());
-                //string textToAppend = userServices.ModelToBankUserViewDTO(model).ToString();
             }
 
-            string newPath = NewFile();
+            string newPath = CreateNewFile();
             sb.AppendLine();
             sb.AppendLine($"Directory of processed file:");
             sb.AppendLine(newPath);
@@ -69,7 +81,7 @@ namespace MyCS_TeenTitans.Controllers
             return sb.ToString().Trim();
         }
 
-        private string NewFile()
+        private string CreateNewFile()
         {
             int hour = DateTime.Now.Hour;
             int minute = DateTime.Now.Minute;
@@ -81,7 +93,7 @@ namespace MyCS_TeenTitans.Controllers
             //String to concat with the name of the input file, in order to make new name for the output file.
             string addString = $"_{day}{month}{year}_{hour}{minute}{second}_result";
 
-            string newPath = $@"C:\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FileName{addString}.csv";
+            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FirstModel{addString}.csv";
             System.IO.File.Copy(OriginalPath, newPath);
 
             return newPath;

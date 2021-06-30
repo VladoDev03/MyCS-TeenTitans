@@ -22,5 +22,7 @@ namespace Services.Contracts
         BankUserViewDTO ModelToBankUserViewDTO(Model model);
 
         void EditBankUser(int id, BankUser newData);
+
+        void RemoveBankUser(BankUser user);
     }
 }
