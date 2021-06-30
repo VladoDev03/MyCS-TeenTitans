@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyCS_TeenTitans</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/nav.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow ">
+            <div class=" container">
+                <a class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index">My Credit Score - TeenTitans</a>
+                                
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid main-cont">
+        
+        <main role="main" class="pb-3">
+            <div style="width: 100%;" class="row">
+                <div class="col-3 ">
+                    <nav class="navbar-nav sidebar" id="navigation">
+                        <ul class="vertical-menu">
+                            <li class="vertical-item home-page">
+                                <h6><a title="Home page" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Home page</a></h6>
+                            </li>
+                            <li class="vertical-item single-r">
+                                <h6><a title="Single processing" asp-area="" asp-controller="Home" asp-action="SingleProcessing"><i class="fas fa-user"></i> Single processing (New client)</a></h6>
+                            </li>
+                            <li class="vertical-item batch-pr">
+                                <h6><a title="Batch processing" asp-area="" asp-controller="Home" asp-action="BachProcessing"><i class="fas fa-spinner"></i> Batch processing</a></h6>
+                            </li>
+                            <li class="vertical-item contacts">
+                                <h6><a title="Contacts" asp-area="" asp-controller="Home" asp-action="Contacts"><i class="fas fa-address-card"></i> Contacts</a></h6>
+                            </li>
+                            <li class="vertical-item privacy-pol">
+                                <h6><a title="Privacy policy" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fas fa-user-shield"></i> Privacy policy</a></h6>
+                            </li>
+                            <li class="button sign-out">
+                                <a type="button" class="btn sign-out-btn"
+                                   title="Sing out" asp-area="" asp-controller="Home" asp-action="Login">SIGN OUT</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
+                @RenderBody()
+            </div>
+        </main>
+        
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="foo-conteiner container">
+            &copy; 2021 - MyCS_TeenTitans - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

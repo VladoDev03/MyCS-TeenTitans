@@ -1,0 +1,292 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutNav.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/singleProcessing.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/js/singleProcessing.js"></script>
+</head>
+<body>
+    <form id="regForm" action="/Home/DecisionNewClient">
+        <!-- One "tab" for each step in the form: -->
+
+        <div class="tab">
+            <div class="headline">Personal data:</div>
+            <div class="field-container">
+                <div>Name: </div>
+                <input id="first-name" placeholder="First name..." oninput="this.className = ''">
+                <div class="message" id="first-name-error-message">First name is required!</div>
+                <input id="last-name" placeholder="Last name..." oninput="this.className = ''">
+                <div class="message" id="last-name-error-message">Last name is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Marital status:</div>
+                <div class="input-group" id="marital-status">
+                    <select class="custom-select" id="input-group-select-marital-status">
+                        <option selected>Choose...</option>
+                        <option value="1">Divorced</option>
+                        <option value="2">Married</option>
+                        <option value="3">Single</option>
+                        <option value="4">Widow</option>
+                        <option value="5">Not given</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-marital-status">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="marital-status-error-message">Marital status is required!</div>
+
+            </div>
+            
+            <div class="field-container">
+                <div>Home telephone number:</div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-home-telephone-number">
+                        <option selected>Choose...</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                        <option value="3">N/A</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-home-telephone-number">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="home-telephone-number-error-message">Home telephone number is required!</div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <div class="field-container">
+                <div>Number of dependants: </div>
+                <input id="number-of-dependants" placeholder="Number of dependants..." oninput="this.className = ''">
+                <div class="message" id="number-of-dependants-error-message">Number of dependants is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Occupation code</div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-occupation-code">
+                        <option selected>Choose...</option>
+                        <option value="1">Other</option>
+                        <option value="2">Pensioner</option>
+                        <option value="3">Self-employed</option>
+                        <option value="4">Employee</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-occupation-code">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="occupation-code-error-message">Occupation code is required!</div>
+            </div>
+
+            <div class="field-container">
+                <div>Promotion type:</div>
+                <input id="promotion-type" placeholder="Promotion type..." oninput="this.className = ''">
+                <div class="message" id="promotion-type-error-message">Promotion type is required!</div>
+
+            </div>
+            <div class="field-container">
+                <div>Residential status:</div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-residential-status">
+                        <option selected>Choose...</option>
+                        <option value="1">Homeowner</option>
+                        <option value="2">Living with parents</option>
+                        <option value="3">Tenant</option>
+                        <option value="4">Other</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-residential-status">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="residential-status-error-message">Residential status is required!</div>
+            </div>            
+        </div>
+
+        <div class="tab">
+            <div class="field-container">
+                <div>Age of applicant</div>
+                <input id="age-of-applicant" placeholder="Age of applicant..." oninput="this.className = ''">
+                <div class="message" id="age-of-applicant-error-message">Age of applicant is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Gross annual income:</div>
+                <input id="gross-annual-income" placeholder="Gross annual income..." oninput="this.className = ''">
+                <div class="message" id="gross-annual-income-error-message">Gross annual income is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Time at address: </div>
+                <input id="time-at-address" placeholder="Time at address..." oninput="this.className = ''">
+                <div class="message" id="time-at-address-error-message">Time at address is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Time in employment:</div>
+                <input id="time-in-employment" placeholder="Time in employment..." oninput="this.className = ''">
+                <div class="message" id="time-in-employment-error-message">Time in employment is required!</div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <div class="headline">Data entered by the bank:</div>
+            <div class="field-container">
+                <div>Account type: </div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-account-type">
+                        <option selected>Choose...</option>
+                        <option value="1">Fixed Loan</option>
+                        <option value="2">Variable Loan</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-account-type">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="account-type-error-message">Account type is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Current deliquency status: </div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-current-deliquency-status">
+                        <option selected>Choose...</option>
+                        <option value="1">Zero</option>
+                        <option value="2">One</option>
+                        <option value="3">Two</option>
+                        <option value="4">Three</option>
+                        <option value="5">Four</option>
+                        <option value="6">Five</option>
+                        <option value="7">Six</option>
+                        <option value="8">More than six</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-current-deliquency-status">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="current-deliquency-status-error-message">Current deliquency status is required!</div>
+            </div>
+
+            <div class="field-container">
+                <div>Application date:</div>
+                <input id="application-date" placeholder="Application date..." oninput="this.className = ''">
+                <div class="message" id="application-date-error-message">Application date is required!</div>
+
+            </div>
+            <div class="field-container">
+                <div>Insurance required:</div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-insurance-required">
+                        <option selected>Choose...</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                        <option value="3">N/A</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-insurance-required">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="insurance-required-error-message">Insurance required is required!</div>
+            </div>
+            
+        </div>
+
+        <div class="tab">
+            <div class="field-container">
+                <div>Loan amount: </div>
+                <input id="loan-amount" placeholder="Loan amount..." oninput="this.className = ''">
+                <div class="message" id="loan-amount-error-message">Loan amount is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Number of payments: </div>
+                <input id="number-of-payments" placeholder="Number of payments..." oninput="this.className = ''">
+                <div class="message" id="number-of-payments-error-message">Number of payments is required!</div>
+            </div>
+            <div class="field-container">
+                <div>Loan payment frequency: </div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-loan-payment-frequency">
+                        <option selected>Choose...</option>
+                        <option value="1">N/A</option>
+                        <option value="2">Two times per month</option>
+                        <option value="3">Monthly</option>
+                        <option value="4">Weekly</option>
+                        <option value="5">Not given</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-loan-payment-frequency">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="loan-payment-frequency-error-message">Loan payment frequency is required!</div>
+            </div>
+
+            <div class="field-container">
+                <div>Loan payment method:</div>
+                <div class="input-group">
+                    <select class="custom-select" id="input-group-select-loan-payment-method">
+                        <option selected>Choose...</option>
+                        <option value="1">N/A</option>
+                        <option value="2">Bank Payment</option>
+                        <option value="3">Cheque</option>
+                        <option value="4">Standing Order</option>
+                        <option value="5">Not given</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-loan-payment-method">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="loan-payment-method-error-message">Loan payment method is required!</div>                
+            </div>
+        </div>
+        <div class="tab">
+            <div class="field-container">
+                <div>Bureau score: </div>
+                <input id="bureau-score" placeholder="Bureau score..." oninput="this.className = ''">    
+                <div class="message" id="bureau-score-error-message">Bureau score is required!</div>
+            </div>
+            <div class="field-container">
+                <div>SP-ER-Reference: </div>
+                <div class="input-group" id="sp-er-reference">
+                    <select class="custom-select" id="input-group-select-sp-er-reference">
+                        <option selected>Choose...</option>
+                        <option value="1">Confirmed</option>
+                        <option value="2">Confirmed as previous occupant</option>
+                        <option value="3">Not confirmed</option>
+                        <option value="4">No trace for block and address supplied</option>
+                        <option value="5">No trace block and no address supplied</option>
+                    </select>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="input-group-select-sp-er-reference">Options</label>
+                    </div>
+                </div>
+                <div class="message" id="sp-er-reference-error-message">Loan payment frequency is required!</div>
+            </div>
+            <div class="field-container">
+                <div>SP-Number-of-searches-L6M: </div>
+                <input id="sp-number-of-searches-l6m" placeholder="SP-Number-of-searches-L6M..." oninput="this.className = ''">
+                <div class="message" id="sp-number-of-searches-l6m-error-message">SP-Number-of-searches-L6M is required!</div>
+            </div>
+            <div class="field-container">
+                <div>SP-number-of-CCJs: </div>
+                <input id="sp-number-of-ccjs" placeholder="SP-number-of-CCJs..." oninput="this.className = ''">
+                <div class="message" id="sp-number-of-ccjs-error-message">SP-number-of-CCJs is required!</div>
+            </div>
+        </div>
+        <div class="btn-form">
+            <div class="btn-next-previous">
+                <button class="btn btn-primary previous-btn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button class="btn btn-primary next-btn" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+
+        <!-- Circles which indicates the steps of the form: -->
+        <div class="step-container">
+            <div class="stepper">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <!--<span class="step"></span>-->
+            </div>
+        </div>
+
+    </form>
+</body>

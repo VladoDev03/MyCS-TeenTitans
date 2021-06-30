@@ -27,6 +27,40 @@ namespace MyCS_TeenTitans.Controllers
         {
             return View();
         }
+        
+        public IActionResult Login() {
+            return View();
+        }
+        
+        public IActionResult SingleProcessing()
+        {
+            return View();
+        }
+
+        public IActionResult EditClient(string name)
+        {
+            return View();
+        }
+
+        public IActionResult BachProcessing()
+        {
+            return View();
+        }
+
+        public IActionResult DecisionNewClient()
+        {
+            return View();
+        }
+
+        public IActionResult DecisionEditClient()
+        {
+            return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

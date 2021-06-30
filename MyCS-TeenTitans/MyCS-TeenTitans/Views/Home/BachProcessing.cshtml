@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutNav.cshtml";
+}
+<head>
+    <link href="/css/bachProcessing.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+
+<title>Bach Processing</title>
+<body>
+    <div class="bg-light upload-form">
+        <div class="container-sm shadow-sm bg-white py-4 upload-container ">
+            <h2 class="text-center">Upload file:</h2>
+            <form method="POST" action="#" id="upload">
+                <div>
+                    <h6>File name:</h6>
+                </div>
+                <div>
+                    <input type="text" class="form-control" id="file-name" placeholder="wwwroot/FileName.csv">
+                </div>                
+                <div class="upload">
+                    <button type="button" action="#" class="upload-btn btn">
+                        <i class="fas fa-file-upload"></i>  Upload
+                    </button>
+                </div>
+                <div class="text-upl">
+                    The directory where the file is saved:<br />
+                    <div class="name-directory">
+                        <i class="fas fa-folder"></i> wwwroot
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

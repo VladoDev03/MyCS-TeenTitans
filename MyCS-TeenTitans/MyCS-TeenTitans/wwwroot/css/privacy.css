@@ -1,0 +1,9 @@
+﻿.row {
+    display: flex;    
+    flex-wrap: wrap;
+    margin-right: 140px;
+    margin-left: 140px;
+}
+.title-privacy {
+    margin-left: 153px;
+}
