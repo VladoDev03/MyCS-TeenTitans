@@ -85,5 +85,11 @@ namespace Services
 
             return userView;
         }
+
+        public void RemoveBankUser(BankUser user)
+        {
+            context.BankUsers.Remove(user);
+            context.SaveChanges();
+        }
     }
 }

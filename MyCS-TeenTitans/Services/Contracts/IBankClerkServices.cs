@@ -9,10 +9,14 @@ namespace Services.Contracts
 {
     public interface IBankClerkServices
     {
-        List<BankClerk> GetAllBankUsers();
+        List<BankClerk> GetAllBankClerks();
 
         BankClerk FindById(string id);
 
-        void AddBankUser(BankClerk clerk);
+        void AddBankClerk(BankClerk clerk);
+
+        void EditBankClerk(int id, BankClerk newData);
+
+        void RemoveBankClerk(BankClerk clerk);
     }
 }

@@ -23,6 +23,15 @@ namespace Services
             context.SaveChanges();
         }
 
+        public void EditFile(int id, File newData)
+        {
+            File file = context.Files
+                   .FirstOrDefault(f => f.Id == id.ToString());
+            file = newData;
+
+            context.SaveChanges();
+        }
+
         public File FindById(string id)
         {
             File file = context.Files.FirstOrDefault(f => f.Id == id);
@@ -39,6 +48,12 @@ namespace Services
         {
             List<File> files = context.Files.ToList();
             return files;
+        }
+
+        public void RemoveFile(File file)
+        {
+            context.Files.Remove(file);
+            context.SaveChanges();
         }
     }
 }

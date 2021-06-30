@@ -17,9 +17,18 @@ namespace Services
             this.context = context;
         }
 
-        public void AddBankUser(BankClerk clerk)
+        public void AddBankClerk(BankClerk clerk)
         {
             context.Add(clerk);
+            context.SaveChanges();
+        }
+
+        public void EditBankClerk(int id, BankClerk newData)
+        {
+            BankClerk clerk = context.BankClerks
+                .FirstOrDefault(c => c.Id == id.ToString());
+            clerk = newData;
+
             context.SaveChanges();
         }
 
@@ -29,10 +38,16 @@ namespace Services
             return clerk;
         }
 
-        public List<BankClerk> GetAllBankUsers()
+        public List<BankClerk> GetAllBankClerks()
         {
             List<BankClerk> clerks = context.BankClerks.ToList();
             return clerks;
+        }
+
+        public void RemoveBankClerk(BankClerk clerk)
+        {
+            context.Remove(clerk);
+            context.SaveChanges();
         }
     }
 }
