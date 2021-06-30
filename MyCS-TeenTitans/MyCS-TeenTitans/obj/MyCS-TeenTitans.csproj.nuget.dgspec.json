@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj": {}
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj": {
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\obj\\",
+        "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\Data.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,21 +75,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj": {
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj",
+        "projectUniqueName": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj",
         "projectName": "MyCS-TeenTitans",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\MyCS-TeenTitans\\obj\\",
+        "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\MyCS-TeenTitans\\MyCS-TeenTitans.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\MyCS-TeenTitans\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,8 +106,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\Services.csproj"
+              "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\Services.csproj"
               }
             }
           }
@@ -133,21 +139,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\Services.csproj": {
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Services\\obj\\",
+        "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -161,8 +170,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\Models\\Data.csproj"
+              "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\Data.csproj": {
+                "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\Models\\Data.csproj"
               }
             }
           }
@@ -191,7 +200,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

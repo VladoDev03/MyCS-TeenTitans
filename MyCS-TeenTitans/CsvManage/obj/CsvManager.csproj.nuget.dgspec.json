@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj": {}
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj": {
+    "C:\\Users\\acer\\source\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj",
+        "projectUniqueName": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj",
         "projectName": "CsvManager",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\MyCS-TeenTitans\\CsvManage\\obj\\",
+        "projectPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\CsvManage\\CsvManager.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer\\source\\MyCS-TeenTitans\\CsvManage\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

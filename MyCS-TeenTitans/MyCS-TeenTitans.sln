@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCS-TeenTitans", "MyCS-Tee
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsvManager", "CsvManage\CsvManager.csproj", "{48FA0C65-C34A-4969-A091-B4BB6DAF6407}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Models\Data.csproj", "{FBCB9CF6-998A-42B3-923F-D59EEC06D0B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Models\Data.csproj", "{FBCB9CF6-998A-42B3-923F-D59EEC06D0B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{FA9A5B92-9431-46E4-B818-0B7C7C6AADF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{FA9A5B92-9431-46E4-B818-0B7C7C6AADF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{4D816B60-6F80-4645-8943-7E28AE8CD2EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{4D816B60-6F80-4645-8943-7E28AE8CD2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,70 @@
+﻿/*Navigation CSS*/
+.navbar-nav {
+    height: 100%;
+    padding: 0;
+    background-color: white;
+    min-width: 280px;
+    display: flex;
+}
+
+.vertical-menu {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow-y: auto;
+    border-right: inset;
+    border-width: thin;
+    border-right-color: #e5e5e5;
+}
+
+    .vertical-menu .vertical-item a {
+        color: #1D4F91;
+        text-decoration: none;
+        display: block;
+        padding: 12px;
+        text-align: left;
+        border-radius: 0;
+    }
+
+.vertical-item:hover {
+    background: #e7e7e7;
+}
+
+.vertical-item {
+    padding: 6px;
+}
+
+.sign-out {
+    text-align: center;
+    color: wheat;
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 14px 0;
+    position: absolute;
+    bottom: 0;
+    background: #AF1685;
+}
+
+    .sign-out:hover {
+    background: #1D4F91;
+    color: white;
+    }
+    
+.sign-out-btn {
+    color: white;
+    font-weight: bold;
+}
+
+.navigation {
+    width: fit-content;
+}
+.sidebar {
+    position: fixed;
+    width: 200px;
+    height: 87%;
+}
+

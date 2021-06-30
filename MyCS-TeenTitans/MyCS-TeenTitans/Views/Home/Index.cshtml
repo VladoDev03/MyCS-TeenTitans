@@ -1,8 +1,60 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutNav.cshtml";
 }
+<head>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<title>Home page</title>
+
+<body>
+    <div class="col-9">
+        <div class="row  welcome-text">
+            <a><h3>Welcome in My Credit Score! <br> Have a nice day! <i class="fas fa-smile-beam emoji-smile"></i></h3></a>
+        </div>
+        <div class="row">
+            <div class="text-to-search">
+                <h6>
+                    There is already our existing customer. Please enter an account number.
+                </h6>
+            </div>
+            <div class="input-group search-all-form">
+                <div class="form-outline search-form-outline">
+                    <input type="text" class="form-control search-form-control" id="search" name="search"
+                           aria-describedby="search" placeholder="Search...">
+                </div>
+                <button type="button" class="btn search-btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            
+                <table class="table table-sm" id="home-table">
+                    <thead>
+                        <tr>                           
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col">Application score</th>
+                            <th scope="col">Final decision</th>
+                            <th scope="col">Application month</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>                            
+                            <td>Ivan</td>
+                            <td>Ivanov</td>
+                            <td>600</td>
+                            <td>Accept</td>
+                            <td>12.2006</td>
+                            <td> <button onclick="window.location.href='/Home/EditClient'" type="button" class="btn edit-btn btn-primary"> Edit </button></td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+   
+
+</body>

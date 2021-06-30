@@ -1,0 +1,28 @@
+﻿/*Login CSS*/
+.login-form {
+    max-width: 500px;
+    margin: auto
+}
+
+.login-btn {
+    background-color: #AF1685;
+    color: white;
+    width: 200px;
+    border-color: dimgray;
+    font-size: 20px;
+}
+
+    .login-btn:hover {
+        background: #1D4F91;
+        color: white;
+    }
+
+.login-container {
+    padding: 15px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
