@@ -58,6 +58,21 @@ namespace Services
             return users;
         }
 
+        public string IdGenerator()
+        {
+            int length = 11;
+            string id = null;
+
+            for (int i = 0; i < length; i++)
+            {
+                Random random = new Random();
+                int part = random.Next(0, 10);
+                id += part;
+            }
+
+            return id;
+        }
+
         public BankUserViewDTO MapBankUserViewDTO(BankUser user)
         {
             string accNum = user.AccountNum;
@@ -66,22 +81,24 @@ namespace Services
             string creditStatus = user.CreditStatus;
             string creditScore = user.CreditScore;
 
-            BankUserViewDTO viewUser = new BankUserViewDTO(
-                accNum, firstName, lastName, creditStatus, creditScore);
+            //BankUserViewDTO viewUser = new BankUserViewDTO(
+            //    accNum, firstName, lastName, creditStatus, creditScore);
 
-            return viewUser;
+            //return viewUser;
+
+            return new BankUserViewDTO();
         }
 
-        public BankUserViewDTO ModelToBankUserViewDTO(Model model)
+        public ModelDTO ModelToBankUserViewDTO(Model model)
         {
-            string accountNumber = model.AccountNum;
-            string firstName = model.FirstName;
-            string lastName = model.LastName;
-            string applicationScore = model.ApplicationScore.ToString();
-            string finalDecision = model.FinalDecision;
+            int currentDeliquencyStatus = model.CurrentDeliquencyStatus;
+            double loanToIncome = model.LoanToIncome;
+            string occupationCode = model.OccupationCode;
+            double bureauScore = model.BureauScore;
+            int timeWithBank = model.TimeWithBank;
 
-            BankUserViewDTO userView = new BankUserViewDTO(accountNumber, firstName,
-                lastName, finalDecision, applicationScore);
+            ModelDTO userView = new ModelDTO(currentDeliquencyStatus, loanToIncome,
+                occupationCode, bureauScore, timeWithBank);
 
             return userView;
         }

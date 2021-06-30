@@ -1,0 +1,14 @@
+﻿using Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Services.Contracts
+{
+    public interface IModelServices
+    {
+        double ProcessData(Model model);
+    }
+}

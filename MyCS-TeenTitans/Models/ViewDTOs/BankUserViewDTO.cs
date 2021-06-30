@@ -8,26 +8,30 @@ namespace Data.ViewDTOs
 {
     public class BankUserViewDTO
     {
+        public BankUserViewDTO() {  }
+
         public BankUserViewDTO(
-               string accountNum, string firstName,
-               string lastName, string creditStatus,
-               string creditScore)
+               int currentDeliquencyStatus,
+               double loanToIncome,
+               string occupationCode,
+               double bureauScore,
+               int timeWithBank)
         {
-            AccountNum = accountNum;
-            FirstName = firstName;
-            LastName = lastName;
-            CreditStatus = creditStatus;
-            CreditScore = creditScore;
+            CurrentDeliquencyStatus = currentDeliquencyStatus;
+            LoanToIncome = loanToIncome;
+            OccupationCode = occupationCode;
+            BureauScore = bureauScore;
+            TimeWithBank = timeWithBank;
         }
 
-        public string AccountNum { get; set; }
+        public int CurrentDeliquencyStatus { get; set; }
 
-        public string FirstName { get; set; }
+        public double LoanToIncome { get; set; }
 
-        public string LastName { get; set; }
+        public string OccupationCode { get; set; }
 
-        public string CreditStatus { get; set; }
+        public double BureauScore { get; set; }
 
-        public string CreditScore { get; set; }
+        public int TimeWithBank { get; set; }
     }
 }

@@ -12,15 +12,15 @@
     <div class="bg-light upload-form">
         <div class="container-sm shadow-sm bg-white py-4 upload-container ">
             <h2 class="text-center">Upload file:</h2>
-            <form method="POST" action="#" id="upload">
+            <form asp-action="MultyCreateUI" asp-controller="Processing" method="POST" id="upload">
                 <div>
                     <h6>File name:</h6>
                 </div>
                 <div>
-                    <input type="text" class="form-control" id="file-name" placeholder="wwwroot/FileName.csv">
+                    <input type="text" name="path" class="form-control" id="file-name" placeholder="wwwroot/FileName.csv">
                 </div>                
                 <div class="upload">
-                    <button type="button" action="#" class="upload-btn btn">
+                    <button type="submit" action="#" class="upload-btn btn">
                         <i class="fas fa-file-upload"></i>  Upload
                     </button>
                 </div>

@@ -38,6 +38,7 @@ namespace MyCS_TeenTitans
             services.AddScoped<IBankUserServices, BankUserServices>();
             services.AddScoped<IFileServices, FileServices>();
             services.AddScoped<IBankClerkServices, BankClerkServices>();
+            services.AddScoped<IModelServices, ModelServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

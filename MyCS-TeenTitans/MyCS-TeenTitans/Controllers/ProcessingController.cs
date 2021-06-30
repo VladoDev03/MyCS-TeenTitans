@@ -13,13 +13,15 @@ namespace MyCS_TeenTitans.Controllers
 {
     public class ProcessingController : Controller
     {
+        //C:\Users\Vladrig\Desktop\Input.csv
+
         private IBankUserServices userServices;
-
-        private const string OriginalPath = @"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Input\FirstModel.csv";
-
-        public ProcessingController(IBankUserServices userServices)
+        private IModelServices modelServices;
+        
+        public ProcessingController(IBankUserServices userServices, IModelServices modelServices)
         {
             this.userServices = userServices;
+            this.modelServices = modelServices;
         }
 
         public IActionResult Index()
@@ -34,7 +36,6 @@ namespace MyCS_TeenTitans.Controllers
         public string SingleCreate([FromBody] Model model)
         {
             string result = JsonManager.CreateJsonForUserOutput(model);
-            //Info log
 
             return result;
         }
@@ -46,7 +47,6 @@ namespace MyCS_TeenTitans.Controllers
         public async Task<string> MultyCreate()
         {
             string path = null;
-            //Info log
 
             using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             {
@@ -57,9 +57,13 @@ namespace MyCS_TeenTitans.Controllers
         }
 
         //Method for UI
-        public void MultyCreate(string path)
+        [HttpPost]
+        public IActionResult MultyCreateUI(string path)
         {
+            string id = userServices.IdGenerator();
             ProcessAllModels(path);
+            Console.Beep();
+            return RedirectToAction("Index", "Home");
         }
 
         private string ProcessAllModels(string path)
@@ -73,7 +77,7 @@ namespace MyCS_TeenTitans.Controllers
                 sb.AppendLine(model.ToString());
             }
 
-            string newPath = CreateNewFile();
+            string newPath = CreateNewFile(path);
             sb.AppendLine();
             sb.AppendLine($"Directory of processed file:");
             sb.AppendLine(newPath);
@@ -81,7 +85,7 @@ namespace MyCS_TeenTitans.Controllers
             return sb.ToString().Trim();
         }
 
-        private string CreateNewFile()
+        private string CreateNewFile(string path)
         {
             int hour = DateTime.Now.Hour;
             int minute = DateTime.Now.Minute;
@@ -94,7 +98,7 @@ namespace MyCS_TeenTitans.Controllers
             string addString = $"_{day}{month}{year}_{hour}{minute}{second}_result";
 
             string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FirstModel{addString}.csv";
-            System.IO.File.Copy(OriginalPath, newPath);
+            System.IO.File.Copy(path, newPath);
 
             return newPath;
         }

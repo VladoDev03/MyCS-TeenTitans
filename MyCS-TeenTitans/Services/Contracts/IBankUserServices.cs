@@ -1,11 +1,11 @@
 ﻿using Data.Models;
-using Data.ViewDTOs;
 using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.ViewDTOs;
 
 namespace Services.Contracts
 {
@@ -19,10 +19,12 @@ namespace Services.Contracts
 
         void AddBankUser(BankUser user);
 
-        BankUserViewDTO ModelToBankUserViewDTO(Model model);
+        ModelDTO ModelToBankUserViewDTO(Model model);
 
         void EditBankUser(int id, BankUser newData);
 
         void RemoveBankUser(BankUser user);
+
+        string IdGenerator();
     }
 }

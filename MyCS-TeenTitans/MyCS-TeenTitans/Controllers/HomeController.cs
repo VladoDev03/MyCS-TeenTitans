@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyCS_TeenTitans.Models;
+using Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,14 +15,25 @@ namespace MyCS_TeenTitans.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private IBankUserServices userServices;
+
+        public HomeController(ILogger<HomeController> logger, IBankUserServices userServices)
         {
             _logger = logger;
+            this.userServices = userServices;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult FindClient(string search)
+        {
+            BankUser client = userServices.FindByNumber(search);
+            return View(nameof(Index), client);
         }
 
         public IActionResult Privacy()

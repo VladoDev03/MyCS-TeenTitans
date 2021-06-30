@@ -41,14 +41,14 @@ namespace FileManager
 
         public static string CreateJsonForUserOutput(Model model)
         {
-            string accountNumber = model.AccountNum;
-            string firstName = model.FirstName;
-            string lastName = model.LastName;
-            string applicationScore = model.ApplicationScore.ToString();
-            string finalDecision = model.FinalDecision;
+            int currentDeliquencyStatus = model.CurrentDeliquencyStatus;
+            double loanToIncome = model.LoanToIncome;
+            string occupationCode = model.OccupationCode;
+            double bureauScore = model.BureauScore;
+            int timeWithBank = model.TimeWithBank;
 
-            BankUserViewDTO userView = new BankUserViewDTO(accountNumber, firstName,
-                lastName, finalDecision, applicationScore);
+            ModelDTO userView = new ModelDTO(currentDeliquencyStatus, loanToIncome,
+                occupationCode, bureauScore, timeWithBank);
 
             string text = JsonSerializer.Serialize(userView, new JsonSerializerOptions
             {
