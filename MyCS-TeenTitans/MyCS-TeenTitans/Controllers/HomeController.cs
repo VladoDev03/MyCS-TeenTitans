@@ -55,7 +55,7 @@ namespace MyCS_TeenTitans.Controllers
             return View();
         }
 
-        public IActionResult BachProcessing()
+        public IActionResult BatchProcessing()
         {
             return View();
         }
