@@ -1,4 +1,6 @@
-﻿using Data.Models;
+﻿using Data.InputModels;
+using Data.Models;
+using Data.ViewDTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyCS_TeenTitans.Models;
@@ -16,10 +18,12 @@ namespace MyCS_TeenTitans.Controllers
         static readonly log4net.ILog _log4net = log4net.LogManager.GetLogger(typeof(HomeController));
 
         private IBankUserServices userServices;
+        private IModelServices modelServices;
 
-        public HomeController(ILogger<HomeController> logger, IBankUserServices userServices)
+        public HomeController(ILogger<HomeController> logger, IBankUserServices userServices, IModelServices modelServices)
         {
             this.userServices = userServices;
+            this.modelServices = modelServices;
         }
 
         [HttpGet]
@@ -74,35 +78,55 @@ namespace MyCS_TeenTitans.Controllers
             return View();
         }
 
-        public IActionResult DecisionNewClient(string firstName, string lastName)
+        public IActionResult DecisionNewClient(string occCode, int currDelStatus, int timeWBank, double bureauScore, string gbFlag, double loanToIncome)
         {
-            //TODO: Add logic to get real decision and score
+            ModelInput model = new ModelInput();
 
-            string decision = "";
-            string score = "";
+            model.OccupationCode = occCode;
+            model.CurrentDeliquencyStatus = currDelStatus;
+            model.TimeWithBank = timeWBank;
+            model.BureauScore = bureauScore;
+            model.GB_Flag = gbFlag;
+            model.LoanToIncome = loanToIncome;
 
-            if (firstName == "Name")
-            {
-                decision = "Accepted";
-                score = "1000";
+            string score = modelServices.ProcessData(model).ToString();
+            string result = Decision(double.Parse(score));
 
-            }
-            else
-            {
-                decision = "Rejected";
-                score = "500";
-            }
+            string id = userServices.IdGenerator();
+            BankUser bankUser = new BankUser(id, result, score, DateTime.Now);
+            userServices.AddBankUser(bankUser);
 
-            DecisionViewModel model = new DecisionViewModel();
-            model.Decision = decision;
-            model.Score = score;
+            DecisionViewModel decision = new DecisionViewModel(result, score);
 
-            return View(model);
+            return View(decision);
         }
 
-        public IActionResult DecisionEditClient()
+        [HttpPost]
+        public IActionResult DecisionEditClient(string occCode, int currDelStatus, int timeWBank, double bureauScore, string gbFlag, double loanToIncome)
         {
-            return View();
+            ModelInput model = new ModelInput();
+
+            model.OccupationCode = occCode;
+            model.CurrentDeliquencyStatus = currDelStatus;
+            model.TimeWithBank = timeWBank;
+            model.BureauScore = bureauScore;
+            model.GB_Flag = gbFlag;
+            model.LoanToIncome = loanToIncome;
+
+            string score = modelServices.ProcessData(model).ToString();
+            string result = Decision(double.Parse(score));
+
+            DecisionViewModel decision = new DecisionViewModel(result, score);
+
+            return View(decision);
+        }
+
+        [HttpGet]
+        public IActionResult DecisionEditClient(string id)
+        {
+            BankUser user = userServices.FindByNumber(id);
+
+            return View(user);
         }
 
         public IActionResult Contacts()
@@ -116,6 +140,22 @@ namespace MyCS_TeenTitans.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public string Decision(double score)
+        {
+            if (score <= 292)
+            {
+                return "Declined";
+            }
+            else if (score <= 312 && score >= 293)
+            {
+                return "Refer for further manual assessment";
+            }
+            else
+            {
+                return "Accepted";
+            }
         }
     }
 }

@@ -8,14 +8,14 @@
     <script type="text/javascript" src="~/js/singleProcessing.js"></script>
 </head>
 <body>
-    <form id="regForm" action="/Home/DecisionNewClient">
+    <form id="regForm" asp-action="DecisionNewClient" asp-controller="Home">
         <!-- One "tab" for each step in the form: -->
 
         <div class="tab">
             <div class="field-container">
                 <div>Occupation code</div>
                 <div class="input-group">
-                    <select class="custom-select" id="input-group-select-occupation-code">
+                    <select class="custom-select" id="input-group-select-occupation-code" name="occCode">
                         <option selected>Choose...</option>
                         <option value="1">Other</option>
                         <option value="2">Pensioner</option>
@@ -31,7 +31,7 @@
             <div class="field-container">
                 <div>Current deliquency status: </div>
                 <div class="input-group">
-                    <select class="custom-select" id="input-group-select-current-deliquency-status">
+                    <select class="custom-select" id="input-group-select-current-deliquency-status" name="currDelStatus">
                         <option selected>Choose...</option>
                         <option value="1">Zero</option>
                         <option value="2">One</option>
@@ -50,7 +50,7 @@
             </div>
             <div class="field-container">
                 <div>Time with Bank: </div>
-                <input id="time-with-bank" placeholder="Time with Bank..." oninput="this.className = ''">
+                <input id="time-with-bank" placeholder="Time with Bank..." oninput="this.className = ''" name="timeWBank">
                 <div class="message" id="time-with-bank-error-message">Time with Bank is required!</div>
             </div>
         </div>
@@ -58,17 +58,17 @@
         <div class="tab">
             <div class="field-container">
                 <div>Bureau score: </div>
-                <input id="bureau-score" placeholder="Bureau score..." oninput="this.className = ''">
+                <input id="bureau-score" placeholder="Bureau score..." oninput="this.className = ''" name="bureauScore">
                 <div class="message" id="bureau-score-error-message">Bureau score is required!</div>
             </div>
             <div class="field-container">
                 <div>GB Flag: </div>
-                <input id="gb-flag" placeholder="GB Flag..." oninput="this.className = ''">
+                <input id="gb-flag" placeholder="GB Flag..." oninput="this.className = ''" name="gbFlag">
                 <div class="message" id="gb-flag-error-message">GB Flag is required!</div>
             </div>
             <div class="field-container">
                 <div>Loan to income: </div>
-                <input id="loan-to-income" placeholder="Loan to income..." oninput="this.className = ''">
+                <input id="loan-to-income" placeholder="Loan to income..." oninput="this.className = ''" name="loanToIncome">
                 <div class="message" id="loan-to-income-error-message">Loan to income is required!</div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 ﻿using Data;
+using Data.InputModels;
+using Data.Models;
+using Data.ViewDTOs;
 using FileManager;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -15,11 +18,13 @@ namespace MyCS_TeenTitans.Controllers
     {
         private IBankUserServices userServices;
         private IModelServices modelServices;
+        private IFileServices fileServices;
         
-        public ProcessingController(IBankUserServices userServices, IModelServices modelServices)
+        public ProcessingController(IBankUserServices userServices, IModelServices modelServices, IFileServices fileServices)
         {
             this.userServices = userServices;
             this.modelServices = modelServices;
+            this.fileServices = fileServices;
         }
 
         public IActionResult Index()
@@ -31,11 +36,21 @@ namespace MyCS_TeenTitans.Controllers
         //To be changed
         //https://localhost:44369/single
         [HttpPost("single")]
-        public string SingleCreate([FromBody] Model model)
+        public string SingleCreate([FromBody] ModelInput model)
         {
-            string result = JsonManager.CreateJsonForUserOutput(model);
+            string score = modelServices.ProcessData(model).ToString();
+            string result = modelServices.MakeDecision(double.Parse(score));
 
-            return result;
+            DecisionViewModel decision = new DecisionViewModel(result, score);
+
+            string resultText = JsonManager.CreateJsonForUserOutput(decision);
+
+            string id = userServices.IdGenerator();
+
+            BankUser bankUser = new BankUser(id, result, score, DateTime.Now);
+            userServices.AddBankUser(bankUser);
+
+            return resultText;
         }
 
         //Method for postman
@@ -63,7 +78,6 @@ namespace MyCS_TeenTitans.Controllers
                 return RedirectToAction("BatchProcessing", "Home");
             }
 
-            string id = userServices.IdGenerator();
             ProcessAllModels(path);
             Console.Beep();
             return RedirectToAction("Index", "Home");
@@ -71,16 +85,37 @@ namespace MyCS_TeenTitans.Controllers
 
         private string ProcessAllModels(string path)
         {
-            List<Model> models = CsvManager.ReadCsv(path);
+            List<ModelInput> models = CsvManager.ReadCsv(path);
+            List<BankUserViewDTO> resultModels = new List<BankUserViewDTO>();
 
             StringBuilder sb = new StringBuilder();
 
-            foreach (Model model in models)
+            foreach (ModelInput model in models)
             {
-                sb.AppendLine(model.ToString());
+                string score = modelServices.ProcessData(model).ToString();
+                string decision = modelServices.MakeDecision(double.Parse(score));
+                string id = userServices.IdGenerator();
+
+                BankUserViewDTO resultModel = new BankUserViewDTO(
+                    id,
+                    model.CurrentDeliquencyStatus,
+                    model.LoanToIncome,
+                    model.OccupationCode,
+                    model.BureauScore,
+                    model.TimeWithBank,
+                    model.GB_Flag,
+                    decision,
+                    score);
+
+                resultModels.Add(resultModel);
+
+                BankUser bankUser = new BankUser(id, decision, score, DateTime.Now);
+                userServices.AddBankUser(bankUser);
+
+                sb.AppendLine(resultModel.ToString());
             }
 
-            string newPath = CreateNewFile(path);
+            string newPath = CreateNewFile(path, resultModels);
             sb.AppendLine();
             sb.AppendLine($"Directory of processed file:");
             sb.AppendLine(newPath);
@@ -88,7 +123,7 @@ namespace MyCS_TeenTitans.Controllers
             return sb.ToString().Trim();
         }
 
-        private string CreateNewFile(string path)
+        private string CreateNewFile(string path, List<BankUserViewDTO> objects)
         {
             int hour = DateTime.Now.Hour;
             int minute = DateTime.Now.Minute;
@@ -100,8 +135,15 @@ namespace MyCS_TeenTitans.Controllers
             //String to concat with the name of the input file, in order to make new name for the output file.
             string addString = $"_{day}{month}{year}_{hour}{minute}{second}_result";
 
-            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FirstModel{addString}.csv";
-            System.IO.File.Copy(path, newPath);
+            string oldFileName = Path.GetFileNameWithoutExtension(path);
+
+            //string id = userServices.IdGenerator();
+
+            //Data.Models.File file = new Data.Models.File(id, oldFileName, DateTime.Now);
+            //fileServices.AddFile(file);
+
+            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
+            CsvManager.ToCsvFile(objects, newPath);
 
             return newPath;
         }

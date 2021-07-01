@@ -39,18 +39,9 @@ namespace FileManager
             return text;
         }
 
-        public static string CreateJsonForUserOutput(Model model)
+        public static string CreateJsonForUserOutput(DecisionViewModel decision)
         {
-            int currentDeliquencyStatus = model.CurrentDeliquencyStatus;
-            double loanToIncome = model.LoanToIncome;
-            string occupationCode = model.OccupationCode;
-            double bureauScore = model.BureauScore;
-            int timeWithBank = model.TimeWithBank;
-
-            ModelDTO userView = new ModelDTO(currentDeliquencyStatus, loanToIncome,
-                occupationCode, bureauScore, timeWithBank);
-
-            string text = JsonSerializer.Serialize(userView, new JsonSerializerOptions
+            string text = JsonSerializer.Serialize(decision, new JsonSerializerOptions
             {
                 WriteIndented = true
             });

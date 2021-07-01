@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.InputModels;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,36 @@ namespace Services
     {
         private const double Intercept = 1.41;
 
-        public double ProcessData(Model model)
+        public double ProcessData(ModelInput model)
         {
             double loanToIncomeScore = LoanToIncomeCalculate(model);
             double occupationCodeScore = OccupationCodeCalculate(model);
             double bureauScoreScore = BureauScoreCalculate(model);
             double timeWithBankScore = TimeWithBankCalculate(model);
 
-            double scoreSum = Intercept + loanToIncomeScore + occupationCodeScore + bureauScoreScore + timeWithBankScore;
+            //double scoreSum = Intercept + (loanToIncomeScore * model.LoanToIncome) + occupationCodeScore + (bureauScoreScore * model.BureauScore) + (timeWithBankScore * (model.TimeWithBank / 10));
+            double scoreSum = (Intercept + loanToIncomeScore + occupationCodeScore + bureauScoreScore + timeWithBankScore) * 100;
 
             return scoreSum;
         }
 
-        public double LoanToIncomeCalculate(Model model)
+        public string MakeDecision(double score)
+        {
+            if (score <= 292)
+            {
+                return "Declined";
+            }
+            else if (score <= 312 && score >= 293)
+            {
+                return "Refer for further manual assessment";
+            }
+            else
+            {
+                return "Accepted";
+            }
+        }
+
+        public double LoanToIncomeCalculate(ModelInput model)
         {
             double loanToIncomeScore = 0;
 
@@ -56,7 +74,7 @@ namespace Services
             return loanToIncomeScore;
         }
 
-        public double OccupationCodeCalculate(Model model)
+        public double OccupationCodeCalculate(ModelInput model)
         {
             double occupationCodeScore = 0;
 
@@ -72,7 +90,7 @@ namespace Services
             return occupationCodeScore;
         }
 
-        public double BureauScoreCalculate(Model model)
+        public double BureauScoreCalculate(ModelInput model)
         {
             double bureauScoreScore = 0;
 
@@ -100,7 +118,7 @@ namespace Services
             return bureauScoreScore;
         }
 
-        public double TimeWithBankCalculate(Model model)
+        public double TimeWithBankCalculate(ModelInput model)
         {
             double timeWithBankScore = 0;
 

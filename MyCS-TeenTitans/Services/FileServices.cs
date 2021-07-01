@@ -19,8 +19,11 @@ namespace Services
 
         public void AddFile(File file)
         {
-            context.Files.Add(file);
-            context.SaveChanges();
+            if (!GetAllBankFiles().Exists(f => f.FileName == file.FileName))
+            {
+                context.Files.Add(file);
+                context.SaveChanges();
+            }
         }
 
         public void EditFile(int id, File newData)

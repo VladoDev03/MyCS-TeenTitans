@@ -7,6 +7,13 @@ namespace Data.Models
 {
     public partial class File
     {
+        public File(string id, string fileName, DateTime dateAndTime)
+        {
+            Id = id;
+            FileName = fileName;
+            DateAndTime = dateAndTime;
+        }
+
         public string Id { get; set; }
         public string FileName { get; set; }
         public string Status { get; set; }

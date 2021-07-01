@@ -60,7 +60,7 @@ namespace Services
 
         public string IdGenerator()
         {
-            int length = 9;
+            int length = 8;
             string id = "11";
 
             bool isExistingId = true;

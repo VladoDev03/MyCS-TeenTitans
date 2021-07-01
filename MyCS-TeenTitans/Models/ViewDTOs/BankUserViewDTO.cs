@@ -11,18 +11,30 @@ namespace Data.ViewDTOs
         public BankUserViewDTO() {  }
 
         public BankUserViewDTO(
+               string accountNum,
                int currentDeliquencyStatus,
                double loanToIncome,
                string occupationCode,
                double bureauScore,
-               int timeWithBank)
+               int timeWithBank,
+               string gb_flag,
+               string decision,
+               string score,
+               string error = null)
         {
+            AccountNum = accountNum;
             CurrentDeliquencyStatus = currentDeliquencyStatus;
             LoanToIncome = loanToIncome;
             OccupationCode = occupationCode;
             BureauScore = bureauScore;
             TimeWithBank = timeWithBank;
+            GB_Flag = gb_flag;
+            Decision = decision;
+            Score = score;
+            Error = error;
         }
+
+        public string AccountNum { get; set; }
 
         public int CurrentDeliquencyStatus { get; set; }
 
@@ -33,5 +45,18 @@ namespace Data.ViewDTOs
         public double BureauScore { get; set; }
 
         public int TimeWithBank { get; set; }
+
+        public string GB_Flag { get; set; }
+
+        public string Decision { get; set; }
+
+        public string Score { get; set; }
+
+        public string Error { get; set; }
+
+        public override string ToString()
+        {
+            return $"{CurrentDeliquencyStatus} {LoanToIncome} {OccupationCode} {BureauScore} {TimeWithBank} {GB_Flag} {Decision} {Score}";
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using CsvHelper;
 using Data;
+using Data.InputModels;
+using Data.ViewDTOs;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,15 +14,15 @@ namespace FileManager
 {
     public static class CsvManager
     {
-        public static List<Model> ReadCsv(string path)
+        public static List<ModelInput> ReadCsv(string path)
         {
             using CsvReader reader = new CsvReader(new StreamReader(path), CultureInfo.InvariantCulture);
-            List<Model> objects = reader.GetRecords<Model>().ToList();
+            List<ModelInput> objects = reader.GetRecords<ModelInput>().ToList();
 
             return objects;
         }
 
-        public static void ToCsvFile(List<Model> objects, string path)
+        public static void ToCsvFile(List<BankUserViewDTO> objects, string path)
         {
             using CsvWriter writer = new CsvWriter(new StreamWriter(path), CultureInfo.InvariantCulture);
             writer.WriteRecords(objects);

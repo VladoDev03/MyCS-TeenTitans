@@ -20,6 +20,18 @@ namespace Data.Models
             DateOfLastScore = dateOfLastScore;
         }
 
+        public BankUser(
+           string accountNum, string creditStatus,
+           string creditScore, DateTime dateOfLastScore)
+        {
+            AccountNum = accountNum;
+            CreditStatus = creditStatus;
+            CreditScore = creditScore;
+            DateOfLastScore = dateOfLastScore;
+            FirstName = "Empty";
+            LastName = "Empty";
+        }
+
         public string AccountNum { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

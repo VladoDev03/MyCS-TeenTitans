@@ -37,8 +37,6 @@
             <table class="table table-sm" id="home-table">
                 <thead>
                     <tr>
-                        <th scope="col">First name</th>
-                        <th scope="col">Last name</th>
                         <th scope="col">Application score</th>
                         <th scope="col">Final decision</th>
                         <th scope="col">Application month</th>
@@ -61,12 +59,10 @@
                                 date = $"{month}.{Model.DateOfLastScore.Year}";
                             }
 
-                            <td>@Model.FirstName</td>
-                            <td>@Model.LastName</td>
                             <td>@Model.CreditScore</td>
                             <td>@Model.CreditStatus</td>
                             <td>@date</td>
-                            <td><button onclick="window.location.href='/Home/EditClient'" type="button" class="btn edit-btn btn-primary"> Edit </button></td>
+                            <td><button onclick="window.location.href='/Home/EditClient/@Model.AccountNum'" type="button" asp-controller="Home" asp-action="DecisionEditClient" asp-route-id="@Model.AccountNum" class="btn edit-btn btn-primary"> Edit </button></td>
                         }
                     </tr>
                 </tbody>

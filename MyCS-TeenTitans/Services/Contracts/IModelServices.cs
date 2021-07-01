@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.InputModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Services.Contracts
 {
     public interface IModelServices
     {
-        double ProcessData(Model model);
+        double ProcessData(ModelInput model);
+
+        string MakeDecision(double score);
     }
 }
