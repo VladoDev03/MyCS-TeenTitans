@@ -60,14 +60,24 @@ namespace Services
 
         public string IdGenerator()
         {
-            int length = 11;
-            string id = null;
+            int length = 9;
+            string id = "11";
 
-            for (int i = 0; i < length; i++)
+            bool isExistingId = true;
+
+            while (isExistingId)
             {
-                Random random = new Random();
-                int part = random.Next(0, 10);
-                id += part;
+                for (int i = 0; i < length; i++)
+                {
+                    Random random = new Random();
+                    int part = random.Next(0, 10);
+                    id += part;
+                }
+
+                if (!GetAllIDs().Contains(id))
+                {
+                    isExistingId = false;
+                }
             }
 
             return id;
@@ -107,6 +117,14 @@ namespace Services
         {
             context.BankUsers.Remove(user);
             context.SaveChanges();
+        }
+
+        private List<string> GetAllIDs()
+        {
+            List<string> ids = context.BankUsers
+                .Select(b => b.AccountNum).ToList();
+
+            return ids;
         }
     }
 }

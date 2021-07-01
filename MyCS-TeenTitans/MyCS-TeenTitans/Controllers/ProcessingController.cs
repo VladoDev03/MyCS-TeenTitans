@@ -58,6 +58,11 @@ namespace MyCS_TeenTitans.Controllers
         [HttpPost]
         public IActionResult MultyCreateUI(string path)
         {
+            if (string.IsNullOrEmpty(path))
+            {
+                return RedirectToAction("BatchProcessing", "Home");
+            }
+
             string id = userServices.IdGenerator();
             ProcessAllModels(path);
             Console.Beep();
@@ -95,7 +100,7 @@ namespace MyCS_TeenTitans.Controllers
             //String to concat with the name of the input file, in order to make new name for the output file.
             string addString = $"_{day}{month}{year}_{hour}{minute}{second}_result";
 
-            string newPath = $@"D:\Yoana\Desktop\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FirstModel{addString}.csv";
+            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\FirstModel{addString}.csv";
             System.IO.File.Copy(path, newPath);
 
             return newPath;
