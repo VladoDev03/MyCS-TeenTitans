@@ -1,0 +1,8 @@
+CurrentDeliquencyStatus,LoanToIncome,OccupationCode,BureauScore,TimeWithBank
+1,20,"Occupation_Code_B",710,1000
+2,30,"Occupation_Code_O|P|M",810,1500
+3,40,"Occupation_Code_B",910,1000
+4,50,"Occupation_Code_O|P|M",710,2000
+5,60,"Occupation_Code_B",610,2000
+6,70,"Occupation_Code_O|P|M",1010,1000
+7,80,"Occupation_Code_B",910,1500

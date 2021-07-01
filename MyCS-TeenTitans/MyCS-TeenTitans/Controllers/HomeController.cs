@@ -13,25 +13,28 @@ namespace MyCS_TeenTitans.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        static readonly log4net.ILog _log4net = log4net.LogManager.GetLogger(typeof(HomeController));
 
         private IBankUserServices userServices;
 
         public HomeController(ILogger<HomeController> logger, IBankUserServices userServices)
         {
-            _logger = logger;
             this.userServices = userServices;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            _log4net.Info("Logging from index page");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult FindClient(string search)
         {
+            _log4net.Info("Finding client");
+
             if (string.IsNullOrEmpty(search))
             {
                 return View(nameof(Index));
@@ -43,6 +46,8 @@ namespace MyCS_TeenTitans.Controllers
 
         public IActionResult Privacy()
         {
+            _log4net.Info("Logging from privacy page");
+
             return View();
         }
         
@@ -52,6 +57,8 @@ namespace MyCS_TeenTitans.Controllers
         
         public IActionResult SingleProcessing()
         {
+            _log4net.Info("Logging from single processing page");
+
             return View();
         }
 
@@ -62,6 +69,8 @@ namespace MyCS_TeenTitans.Controllers
 
         public IActionResult BatchProcessing()
         {
+            _log4net.Info("Logging from batch processing page");
+
             return View();
         }
 
@@ -98,6 +107,8 @@ namespace MyCS_TeenTitans.Controllers
 
         public IActionResult Contacts()
         {
+            _log4net.Info("Logging from contacts page");
+
             return View();
         }
 
