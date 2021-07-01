@@ -32,6 +32,11 @@ namespace MyCS_TeenTitans.Controllers
         [HttpPost]
         public IActionResult FindClient(string search)
         {
+            if (string.IsNullOrEmpty(search))
+            {
+                return View(nameof(Index));
+            }
+
             BankUser client = userServices.FindByNumber(search);
             return View(nameof(Index), client);
         }
@@ -60,9 +65,30 @@ namespace MyCS_TeenTitans.Controllers
             return View();
         }
 
-        public IActionResult DecisionNewClient()
+        public IActionResult DecisionNewClient(string firstName, string lastName)
         {
-            return View();
+            //TODO: Add logic to get real decision and score
+
+            string decision = "";
+            string score = "";
+
+            if (firstName == "Name")
+            {
+                decision = "Accepted";
+                score = "1000";
+
+            }
+            else
+            {
+                decision = "Rejected";
+                score = "500";
+            }
+
+            DecisionViewModel model = new DecisionViewModel();
+            model.Decision = decision;
+            model.Score = score;
+
+            return View(model);
         }
 
         public IActionResult DecisionEditClient()
