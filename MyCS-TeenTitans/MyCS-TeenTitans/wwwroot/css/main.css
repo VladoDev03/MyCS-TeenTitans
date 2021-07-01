@@ -47,6 +47,9 @@
     justify-content: center;
 }
 
+.search-container{
+   display: flex;
+}
 /*Home-Table*/
 .table {
     color: #1D4F91 !important;
