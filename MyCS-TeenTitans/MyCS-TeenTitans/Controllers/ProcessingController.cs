@@ -13,8 +13,6 @@ namespace MyCS_TeenTitans.Controllers
 {
     public class ProcessingController : Controller
     {
-        //C:\Users\Vladrig\Desktop\Input.csv
-
         private IBankUserServices userServices;
         private IModelServices modelServices;
         
