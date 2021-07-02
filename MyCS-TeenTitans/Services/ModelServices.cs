@@ -28,11 +28,11 @@ namespace Services
 
         public string MakeDecision(double score)
         {
-            if (score <= 292)
+            if (score <= 222)
             {
                 return "Declined";
             }
-            else if (score <= 312 && score >= 293)
+            else if (score <= 254 && score >= 223)
             {
                 return "Refer for further manual assessment";
             }
