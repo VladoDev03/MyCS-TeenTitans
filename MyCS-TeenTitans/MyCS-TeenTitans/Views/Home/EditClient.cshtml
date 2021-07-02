@@ -14,6 +14,11 @@
 
         <div class="tab">
             <div class="field-container">
+                <div>Account number: </div>
+                <input id="account-number" placeholder="Account number..." oninput="this.className = ''" readonly>
+                <div class="message" id="account-number-error-message">Account number is required!</div>
+            </div>
+            <div class="field-container">
                 <div>Occupation code</div>
                 <div class="input-group">
                     <select name="occCode" class="custom-select" id="input-group-select-occupation-code">
