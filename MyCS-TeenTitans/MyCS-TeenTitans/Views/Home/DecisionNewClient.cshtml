@@ -13,7 +13,10 @@
             <h2>@Model.Decision</h2>
         </div>
         <div class="text-center app-score-text">
-            <h3>Application score: @Model.Score</h3>           
+            @{ 
+                string score = $"{double.Parse(Model.Score):f2}";
+            }
+            <h3>Application score: @score</h3>           
         </div>
     </div>
     <div>

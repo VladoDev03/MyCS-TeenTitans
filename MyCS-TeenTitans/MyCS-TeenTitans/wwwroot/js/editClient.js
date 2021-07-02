@@ -1,9 +1,8 @@
 ﻿$(document).ready(function () {
-    fetch("https://jsonplaceholder.typicode.com/todos/1") //endpoint
+    fetch("https://localhost:44369/single") //endpoint
         .then(response => response.json())
         .then(function (data) {
-        //$("#first-name").val(data.firstName);
-            $("#first-name").val("Ivan");
-            $("#last-name").val("Ivanov");            
+        $("#first-name").val(data.firstName);
+            
     })
 })

@@ -92,45 +92,36 @@ namespace MyCS_TeenTitans.Controllers
 
         private string ProcessAllModels(string path)
         {
-            List<ModelInput> models = CsvManager.ReadCsv(path);
-            List<BankUserViewDTO> resultModels = new List<BankUserViewDTO>();
+            List<Model> models = CsvManager.ReadCsv(path);
+            List<ModelInput> resultModels = new List<ModelInput>();
+            List<BankUser> bankUsersList = new List<BankUser>();
 
             StringBuilder sb = new StringBuilder();
 
-            foreach (ModelInput model in models)
+            foreach (Model model in models)
             {
-                string score = modelServices.ProcessData(model).ToString();
+                ModelInput readyModel = modelServices.ToInputModel(model);
+
+                string score = modelServices.ProcessData(readyModel).ToString();
                 string decision = modelServices.MakeDecision(double.Parse(score));
                 string id = userServices.IdGenerator();
 
-                BankUserViewDTO resultModel = new BankUserViewDTO(
-                    id,
-                    model.CurrentDeliquencyStatus,
-                    model.LoanToIncome,
-                    model.OccupationCode,
-                    model.BureauScore,
-                    model.TimeWithBank,
-                    model.GB_Flag,
-                    decision,
-                    score);
-
-                resultModels.Add(resultModel);
+                resultModels.Add(readyModel);
 
                 BankUser bankUser = new BankUser(id, decision, score, DateTime.Now);
                 userServices.AddBankUser(bankUser);
-
-                sb.AppendLine(resultModel.ToString());
+                bankUsersList.Add(bankUser);
             }
 
-            string newPath = CreateNewFile(path, resultModels);
-            sb.AppendLine();
+            string newPath = CreateNewFile(path, bankUsersList);
+
             sb.AppendLine($"Directory of processed file:");
             sb.AppendLine(newPath);
 
             return sb.ToString().Trim();
         }
 
-        private string CreateNewFile(string path, List<BankUserViewDTO> objects)
+        private string CreateNewFile(string path, List<BankUser> objects)
         {
             int hour = DateTime.Now.Hour;
             int minute = DateTime.Now.Minute;
@@ -145,12 +136,9 @@ namespace MyCS_TeenTitans.Controllers
             string oldFileName = Path.GetFileNameWithoutExtension(path);
 
             //string id = userServices.IdGenerator();
-
             //Data.Models.File file = new Data.Models.File(id, oldFileName, DateTime.Now);
-            //fileServices.AddFile(file);
 
-            //string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
-            string newPath = $@"D:\Yoana\Desktop\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
+            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
             CsvManager.ToCsvFile(objects, newPath);
 
             return newPath;

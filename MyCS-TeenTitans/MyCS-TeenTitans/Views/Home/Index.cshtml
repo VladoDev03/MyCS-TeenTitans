@@ -50,6 +50,7 @@
                         {
                             string date = null;
                             int month = Model.DateOfLastScore.Month;
+                            string score = $"{Model.CreditScore:f2}";
 
                             if (month < 10)
                             {
@@ -60,7 +61,8 @@
                                 date = $"{month}.{Model.DateOfLastScore.Year}";
                             }
 
-                            <td>@Model.CreditScore</td>
+                            <td>@Model.AccountNum</td>
+                            <td>@score</td>
                             <td>@Model.CreditStatus</td>
                             <td>@date</td>
                             <td><button onclick="window.location.href='/Home/EditClient/@Model.AccountNum'" type="button" asp-controller="Home" asp-action="DecisionEditClient" asp-route-id="@Model.AccountNum" class="btn edit-btn btn-primary"> Edit </button></td>

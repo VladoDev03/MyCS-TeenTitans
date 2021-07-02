@@ -17,7 +17,6 @@ namespace Data.ViewDTOs
                string occupationCode,
                double bureauScore,
                int timeWithBank,
-               string gb_flag,
                string decision,
                string score,
                string error = null)
@@ -28,7 +27,6 @@ namespace Data.ViewDTOs
             OccupationCode = occupationCode;
             BureauScore = bureauScore;
             TimeWithBank = timeWithBank;
-            GB_Flag = gb_flag;
             Decision = decision;
             Score = score;
             Error = error;

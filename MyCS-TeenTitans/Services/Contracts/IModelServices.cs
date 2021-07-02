@@ -13,5 +13,7 @@ namespace Services.Contracts
         double ProcessData(ModelInput model);
 
         string MakeDecision(double score);
+
+        ModelInput ToInputModel(Model model);
     }
 }

@@ -145,5 +145,17 @@ namespace Services
 
             return timeWithBankScore;
         }
+
+        public ModelInput ToInputModel(Model model)
+        {
+            ModelInput modelInput = new ModelInput();
+
+            modelInput.LoanToIncome = model.loan_to_income;
+            modelInput.BureauScore = model.Bureau_Score;
+            modelInput.OccupationCode = model.Occupation_Code;
+            modelInput.TimeWithBank = model.Time_at_Address;
+
+            return modelInput;
+        }
     }
 }

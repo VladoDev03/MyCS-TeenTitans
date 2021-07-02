@@ -19,8 +19,6 @@ namespace Services.Contracts
 
         void AddBankUser(BankUser user);
 
-        ModelDTO ModelToBankUserViewDTO(Model model);
-
         void EditBankUser(int id, BankUser newData);
 
         void RemoveBankUser(BankUser user);

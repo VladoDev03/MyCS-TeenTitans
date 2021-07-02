@@ -99,20 +99,6 @@ namespace Services
             return new BankUserViewDTO();
         }
 
-        public ModelDTO ModelToBankUserViewDTO(Model model)
-        {
-            int currentDeliquencyStatus = model.CurrentDeliquencyStatus;
-            double loanToIncome = model.LoanToIncome;
-            string occupationCode = model.OccupationCode;
-            double bureauScore = model.BureauScore;
-            int timeWithBank = model.TimeWithBank;
-
-            ModelDTO userView = new ModelDTO(currentDeliquencyStatus, loanToIncome,
-                occupationCode, bureauScore, timeWithBank);
-
-            return userView;
-        }
-
         public void RemoveBankUser(BankUser user)
         {
             context.BankUsers.Remove(user);
