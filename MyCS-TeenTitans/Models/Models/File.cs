@@ -12,6 +12,8 @@ namespace Data.Models
             Id = id;
             FileName = fileName;
             DateAndTime = dateAndTime;
+            Status = "passed";
+            BankClerkId = "1";
         }
 
         public string Id { get; set; }

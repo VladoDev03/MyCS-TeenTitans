@@ -135,8 +135,9 @@ namespace MyCS_TeenTitans.Controllers
 
             string oldFileName = Path.GetFileNameWithoutExtension(path);
 
-            //string id = userServices.IdGenerator();
-            //Data.Models.File file = new Data.Models.File(id, oldFileName, DateTime.Now);
+            string id = userServices.IdGenerator();
+            Data.Models.File file = new Data.Models.File(id, oldFileName, DateTime.Now);
+            fileServices.AddFile(file);
 
             string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
             CsvManager.ToCsvFile(objects, newPath);
