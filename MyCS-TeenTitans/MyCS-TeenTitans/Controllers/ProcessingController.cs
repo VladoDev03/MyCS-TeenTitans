@@ -16,6 +16,8 @@ namespace MyCS_TeenTitans.Controllers
 {
     public class ProcessingController : Controller
     {
+        static readonly log4net.ILog _log4net = log4net.LogManager.GetLogger(typeof(ProcessingController));
+
         private IBankUserServices userServices;
         private IModelServices modelServices;
         private IFileServices fileServices;
@@ -50,6 +52,8 @@ namespace MyCS_TeenTitans.Controllers
             BankUser bankUser = new BankUser(id, result, score, DateTime.Now);
             userServices.AddBankUser(bankUser);
 
+            _log4net.Info("Executing single check REST API for customer {model.AccountNum} in processing controller");
+
             return resultText;
         }
 
@@ -66,6 +70,8 @@ namespace MyCS_TeenTitans.Controllers
                 path = await reader.ReadToEndAsync();
             }
 
+            _log4net.Info($"Executing multy check REST API for file with path {path} in processing controller");
+
             return ProcessAllModels(path);
         }
 
@@ -80,6 +86,7 @@ namespace MyCS_TeenTitans.Controllers
 
             ProcessAllModels(path);
             Console.Beep();
+            _log4net.Info($"Executing multy check in UI for file with path {path} in processing controller");
             return RedirectToAction("Index", "Home");
         }
 
@@ -142,7 +149,8 @@ namespace MyCS_TeenTitans.Controllers
             //Data.Models.File file = new Data.Models.File(id, oldFileName, DateTime.Now);
             //fileServices.AddFile(file);
 
-            string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
+            //string newPath = $@"E:\GitRepositories\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
+            string newPath = $@"D:\Yoana\Desktop\MyCS-TeenTitans\MyCS-TeenTitans\MyCS-TeenTitans\wwwroot\Files\Output\{oldFileName}{addString}.csv";
             CsvManager.ToCsvFile(objects, newPath);
 
             return newPath;
